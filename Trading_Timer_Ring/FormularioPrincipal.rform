@@ -1,0 +1,174 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 13 , : y = 20  , 
+		 :width =  450 , :height = 254 , 
+		 :title =  "Trading timer V0.0.5 Ring" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [] ]"  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "TextEdit1" , :id = 2 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 39 , : y = 48  , 
+		 :width =  90 , :height = 35 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "DejaVu Sans,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "00:00",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "BotonCerrar" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 345 , : y = 179  , 
+		 :width =  90 , :height = 40 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Cerrar",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Cerrar"
+		]
+	],
+	[ :name = "BotonAjusta5" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 37 , : y = 106  , 
+		 :width =  92 , :height = 31 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#33d17a" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Set",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Ajusta_Cinco"
+		]
+	],
+	[ :name = "Timer5" , :id = 5 , :classname = "formdesigner_qtimer" , :data = [
+		 :x = 53 , : y = 144  , 
+		 :width =  48 , :height = 50 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Interval =  "1000",
+		 :Timeout =  ""
+		]
+	],
+	[ :name = "TextEdit6" , :id = 6 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 169 , : y = 48  , 
+		 :width =  90 , :height = 35 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "DejaVu Sans,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "00:00",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "BotonAjusta7" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 169 , : y = 106  , 
+		 :width =  92 , :height = 35 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#33d17a" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Set",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Ajusta_Quince"
+		]
+	],
+	[ :name = "Label2" , :id = 8 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 38 , : y = 14  , 
+		 :width =  86 , :height = 27 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "5 Minutos",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label8" , :id = 9 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 174 , : y = 14  , 
+		 :width =  86 , :height = 27 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "15 Minutos",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Label9" , :id = 10 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 310 , : y = 14  , 
+		 :width =  86 , :height = 27 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "1 Hora",
+		 :textalign =  0
+		]
+	],
+	[ :name = "BotonAjusta10" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 301 , : y = 106  , 
+		 :width =  92 , :height = 35 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "#33d17a" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Set",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Ajusta_Sesenta"
+		]
+	],
+	[ :name = "TextEdit11" , :id = 12 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 299 , : y = 48  , 
+		 :width =  90 , :height = 35 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "DejaVu Sans,14,-1,5,75,0,0,0,0,0,Bold" , 
+		 :parent =  "win"  ,
+		 :text =  "00:00",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label4" , :id = 13 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 7 , : y = 205  , 
+		 :width =  323 , :height = 23 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Valentin Coellar S. 2026 dieccion@gruponucleon.com",
+		 :textalign =  0
+		]
+	]
+]
+# End Form Designer File
