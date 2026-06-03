@@ -1,0 +1,78 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Text Field Saver" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "LineEdit1" , :id = 2 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 70 , : y = 45  , 
+		 :width =  233 , :height = 36 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LineEdit2" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 70 , : y = 121  , 
+		 :width =  233 , :height = 40 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "LineEdit3" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 70 , : y = 201  , 
+		 :width =  233 , :height = 40 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 72 , : y = 272  , 
+		 :width =  131 , :height = 38 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Guardar",
+		 :BtnImage =  "",
+		 :setClickEvent =  "GuardarAction"
+		]
+	]
+]
+# End Form Designer File
