@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>El Ofertón - Caja</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body {
+      background: #f5f5f5;
+      padding-top: 72px;
+      padding-bottom: 40px;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #2c3e50;
+      color: white;
+      padding: 12px 16px;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .header-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .header h1 { font-size: 1.4rem; }
+    .caja-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .reload-btn {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .reload-btn:hover { background: rgba(255,255,255,0.2); }
+    .date-box {
+      font-size: 0.9rem;
+      margin-top: 4px;
+      color: #a3b1c2;
+    }
+
+    .list-container {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin: 0 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      background: #ecf0f1;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+    button.print-btn {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 5px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    button.print-btn:hover { background: #2980b9; }
+
+    /* Estilo para tickets ya impresos */
+    tr.impreso td {
+      background-color: #e0e0e0; /* Fondo gris */
+      color: #7f8c8d; /* Texto gris */
+      text-decoration: line-through;
+    }
+    /* NOTA: Eliminamos la regla que bloqueaba el botón.
+       El botón seguirá azul y activo dentro de la fila gris. */
+
+    .loading { text-align: center; padding: 20px; color: #7f8c8d; }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 8px 0;
+      background: #2c3e50;
+      color: #ecf0f1;
+      font-size: 0.85rem;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-left">
+      <h1>El Ofertón</h1>
+      <div class="caja-info">
+        <div>CAJA C15</div>
+        <div class="date-box" id="current-date"></div>
+      </div>
+    </div>
+    <button class="reload-btn" onclick="loadAllData()">↻</button>
+  </div>
+
+  <div class="list-container">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>FOLIO</th>
+          <th>Cliente</th>
+          <th>Art.</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="ticket-list">
+        <tr><td colspan="6" class="loading">Cargando...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    Valentin Coellar 2026
+  </footer>
+
+  <script>
+    let infoTicket = {}; 
+    let clienteMap = {};
+    let productosMap = {}; 
+    
+    // Constante para LocalStorage
+    const LOCAL_STORAGE_KEY = 'impresos_el_oferton';
+
+    const now = new Date();
+    document.getElementById('current-date').textContent = now.toLocaleDateString('es-MX', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    function formatearFechaSinc(fechaStr) {
+      if (!fechaStr) return { fecha: '01/01/1900', hora: '00:00:00' };
+      const partes = fechaStr.trim().split(' ');
+      if (partes.length < 2) return { fecha: '01/01/1900', hora: '00:00:00' };
+      const [anio, mes, dia] = partes[0].split('-');
+      const horaCompleta = partes[1].split('.')[0];
+      const fecha = `${dia}/${mes}/${anio}`;
+      return { fecha, hora: horaCompleta };
+    }
+
+    // Función para obtener lista de impresos del LocalStorage
+    function getImpresos() {
+      const data = localStorage.getItem(LOCAL_STORAGE_KEY);
+      return data ? JSON.parse(data) : [];
+    }
+
+    // Función para guardar un folio como impreso y actualizar la fila
+    function marcarComoImpreso(folio) {
+      let impresos = getImpresos();
+      if (!impresos.includes(folio)) {
+        impresos.push(folio);
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(impresos));
+      }
+      
+      // Buscar la fila en la tabla y agregar la clase 'impreso'
+      const rows = document.querySelectorAll('#ticket-list tr');
+      rows.forEach(row => {
+        // La columna del folio es la segunda (índice 0 es #, índice 1 es folio)
+        if (row.children[1] && row.children[1].textContent.trim() === folio) {
+          row.classList.add('impreso');
+        }
+      });
+    }
+
+    async function loadAllData() {
+      const tbody = document.getElementById('ticket-list');
+      tbody.innerHTML = '<tr><td colspan="6" class="loading">Cargando...</td></tr>';
+
+      try {
+        // Cargar lista de folios ya impresos
+        const impresos = getImpresos();
+
+        // 1. Clientes
+        const resClientes = await fetch('http://amegremoto.ddns.net:8081/clientes');
+        const clientesRaw = await resClientes.json();
+        clienteMap = {};
+        (Array.isArray(clientesRaw) ? clientesRaw : []).forEach(c => {
+          clienteMap[String(c.CLAVE)] = c.NOMBRE || '—';
+        });
+
+        // 2. Productos
+        const resProductos = await fetch('http://amegremoto.ddns.net:8081/nameproducts');
+        const productosRaw = await resProductos.json();
+        productosMap = {};
+        (Array.isArray(productosRaw) ? productosRaw : []).forEach(p => {
+          if (p.CVE_ART !== undefined && p.CVE_ART !== null) {
+            productosMap[String(p.CVE_ART).trim()] = p.DESCR || '—';
+          }
+        });
+
+        // 3. Notas
+        const resNotas = await fetch('http://amegremoto.ddns.net:8081/notas');
+        const notas = await resNotas.json();
+
+        // 4. Partidas
+        const resPartidas = await fetch('http://amegremoto.ddns.net:8081/notasfull');
+        const partidas = await resPartidas.json();
+
+        infoTicket = {};
+
+        (Array.isArray(partidas) ? partidas : []).forEach(item => {
+          const folio = (item.CVE_DOC || '').trim();
+          if (!folio) return;
+
+          if (!infoTicket[folio]) {
+            infoTicket[folio] = {
+              partidas: [],
+              totalCantidad: 0,
+              fechaSinc: null
+            };
+          }
+
+          const partida = {
+            CANT: item.CANT || 0,
+            CVE_ART: item.CVE_ART || '',
+            PREC: item.PREC || 0
+          };
+          infoTicket[folio].partidas.push(partida);
+          infoTicket[folio].totalCantidad += partida.CANT;
+
+          if (item.NUM_PAR == 1 && item.VERSION_SINC) {
+            infoTicket[folio].fechaSinc = item.VERSION_SINC;
+          }
+        });
+
+        const notasConC = (Array.isArray(notas) ? notas : []).filter(nota => {
+          const folio = (nota.CVE_DOC || '').trim();
+          return folio && folio.charAt(0).toUpperCase() === 'C';
+        });
+
+        tbody.innerHTML = '';
+        if (notasConC.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#7f8c8d;">No hay notas con folio que inicie con 'C'</td></tr>`;
+          return;
+        }
+
+        const notasOrdenadas = notasConC.reverse();
+        notasOrdenadas.forEach((nota, i) => {
+          const folio = (nota.CVE_DOC || '').trim();
+          const claveCliente = nota.CVE_CLPV;
+          const nombreCliente = clienteMap[String(claveCliente)] || claveCliente || '—';
+          const total = new Intl.NumberFormat('es-MX', {
+            style: 'currency',
+            currency: 'MXN'
+          }).format(nota.IMPORTE || 0);
+          const numArticulos = infoTicket[folio]?.totalCantidad || 0;
+
+          const tr = document.createElement('tr');
+          
+          // Verificar si ya está impreso para aplicar estilo inicial
+          if (impresos.includes(folio)) {
+            tr.classList.add('impreso');
+          }
+
+          tr.innerHTML = `
+            <td>${i + 1}</td>
+            <td>${folio}</td>
+            <td>${nombreCliente}</td>
+            <td style="text-align:center;">${numArticulos}</td>
+            <td>${total}</td>
+            <td><button class="print-btn" onclick="imprimir('${folio}', '${claveCliente}')">IMPRIMIR</button></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (err) {
+        console.error(err);
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:red;">Error: ${err.message}</td></tr>`;
+      }
+    }
+
+    function imprimir(folio, claveCliente) {
+      const ticket = infoTicket[folio];
+      if (!ticket || !ticket.partidas || ticket.partidas.length === 0) {
+        alert(`No se encontraron datos para el folio: ${folio}`);
+        return;
+      }
+
+      const nombreCliente = clienteMap[String(claveCliente)] || '—';
+      const totalCantidad = ticket.totalCantidad;
+      const { fecha, hora } = formatearFechaSinc(ticket.fechaSinc);
+
+      let html = `
+        <div style="font-family: monospace; font-size: 10pt; line-height: 1.3;">
+          El Oferton<br>
+          <b><span style="font-size: 20pt;">ENTREGA</span></b><br><br>
+
+          FECHA: ${fecha}   HORA:${hora}<br>
+          Ticket No.  ${folio}<br>
+          CLIENTE: ${nombreCliente}<br><br>
+
+          -----------------------------------<br>
+          DESCRIPCION<br>
+          -----------------------------------<br>
+      `;
+
+      ticket.partidas.forEach(p => {
+        const cant = p.CANT;
+        const claveOriginal = (p.CVE_ART || '').trim();
+        const nombreProducto = productosMap[claveOriginal] || claveOriginal;
+        
+        const prec = parseFloat(p.PREC).toFixed(2);
+        const totalLinea = (cant * p.PREC).toFixed(2);
+        
+        // Tamaño de fuente 9pt
+        html += `
+          <div style="font-size: 9pt; margin: 2px 0;">
+            <b>${cant} ${nombreProducto}</b>
+          </div>
+          <div style="font-size: 9pt; margin-bottom: 4px;">
+             x $${prec}    Total: $${totalLinea}
+          </div>
+        `;
+      });
+
+      html += `
+          <br>
+          -----------------------------------<br>
+          TOTAL DE ARTICULOS: ${totalCantidad}<br>
+          <br>
+          NO SE ACEPTAN DEVOLUCIONES<br>
+          <br>
+          -----------------------------------
+        </div>
+      `;
+
+      // Script de auto-cerrado y aviso a la ventana padre
+      const autoCloseScript = `
+        <script>
+          window.addEventListener('afterprint', function() {
+            // Avisar a la ventana principal para marcar como impreso
+            if(window.opener && !window.opener.closed) {
+                window.opener.marcarComoImpreso('${folio}');
+            }
+            window.close(); 
+          });
+        <\/script>
+      `;
+
+      const contenido = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Ticket ${folio}</title>
+          <style>
+            @media print {
+              @page { margin: 0; size: auto; }
+              body { margin: 0; padding: 6px 4px; }
+            }
+          </style>
+        </head>
+        <body>
+          ${html}
+          ${autoCloseScript}
+        </body>
+        </html>
+      `;
+
+      // Abrir en nueva pestaña/ventana completa
+      const printWin = window.open('', '_blank');
+      
+      if (!printWin) {
+        alert('Permite ventanas emergentes para imprimir.');
+        return;
+      }
+
+      printWin.document.write(contenido);
+      printWin.document.close();
+    }
+
+    loadAllData();
+  </script>
+
+</body>
+</html>
