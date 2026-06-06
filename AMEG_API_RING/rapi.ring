@@ -9,11 +9,11 @@
 # Endpoints: 
 # /status 	= Muestra "Exitoso" si api online
 # /dash 	= FrontEnd de la aplicacion
-# /notas       = (devuelve las notas del dia + clave cliente)
-# /clientes    = retorna toda la lista de clientes con sus nombres de CLIE01
+# /notas       	= (devuelve las notas del dia + clave cliente)
+# /clientes    	= retorna toda la lista de clientes con sus nombres de CLIE01
 # /notasfull	= Retorna Notas del dia + todas sus partidas de cada una
-# /nameproducts  =Retorna lista de productos con su descripcion y clave
-# /sinexistencias2 =Retorna losta productos sin existencias en almacen 2
+# /nameproducts	=Retorna lista de productos con su descripcion y clave
+# /stock 	=Retorna losta productos sin existencias en almacen 2
 # --------------------------------------------
 
 load "stdlib.ring"
@@ -30,8 +30,13 @@ oServer = new Server {
 		# endpoint /notas
 		route(:Get,"/notas",:notas)
 
+		# stock /stock
+		route(:Get,"/stock",:stock)
 
-        ? "Servidor iniciado. Valentin Coellar S. 2026 direccion@gruponucleon.com 8081 0.0.1 Ring"
+
+
+
+        ? "Servidor iniciado. Valentin Coellar S. 2026 direccion@gruponucleon.com 8081 0.0.4 Ring"
         listen("0.0.0.0", 8081)
 }
 
@@ -39,22 +44,23 @@ oServer = new Server {
 # --------- FUNCIONES ENDPOINTS ---------
 func status
 	oServer.SetContent("Api Online Conexion existosa", "text/plain")
+end
 
 func dash
 	cFront = read("static/index.html")
 	oServer.SetContent(cFront,"text/html")
-
+end
 
 func notas
 	cmd = 'connectdb --query "SELECT CVE_DOC, CVE_CLPV, IMPORTE FROM FACTV01 WHERE CAST(FECHA_DOC AS DATE) = CAST(GETDATE() AS DATE)"'
     
     res = SystemCmd(cmd)
-    ? res
-   
-   # If res = 1  != 0 
-	#	oServer.SetContent(res, "text/plain")
-    # Else 
-	#	oServer.SetContent(res, "text/plain")
-    # Ok
+    oServer.SetContent(res, "text/plain")
+end
+
+func stock
+    cmd = 'connectdb --query "SELECT CVE_ART, EXIST FROM MULT01 WHERE CVE_ALM = 2 AND EXIST = 0"'
     
-    
+    res = SystemCmd(cmd)
+    oServer.SetContent(res, "text/plain")
+end
