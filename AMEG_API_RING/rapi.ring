@@ -3,7 +3,7 @@
 # Author:  Valentin Coellar Serrano.
 # Email:   direccion@gruponucleon.com
 # Date:    04/06/2026
-# Version: 0.0.1 (Ring)
+# Version: 0.0.4 (Ring)
 # License: Use under Author permission.
 # Port:8081  
 # Endpoints: 
