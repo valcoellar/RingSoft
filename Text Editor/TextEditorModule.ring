@@ -10,9 +10,10 @@ class ModuloPrincipal
 	        see "Cargar Archivo"
 	     end
 
-	func GuardarArchivo
+	func GuardarArchivo(cName)
 		see "Guardar Archivo"
-	     end
+		see cName
+		end
 
 
 	

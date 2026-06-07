@@ -1,31 +1,28 @@
-# Form/Window Controller - Source Code File
+Mod #2
+Mod #1
 
-load "TextEditorView.ring"
-load "TextEditorModule.ring"    # Cargamos nuestro Modulo
 
-import System.GUI
+Mod #1
+Mod #1
+Mod #1
+Mod #1
 
-if IsMainSourceFile() {
-	new App {
-		StyleFusion()
-		openWindow(:TextEditorController)
-		exec()
-	}
-}
+Mod #1
+Mod #1
+Mod #1
+Mod #1
 
-class TextEditorController from windowsControllerParent
+Mod #1
+Mod #1
+Mod #1
 
-	oView = new TextEditorView
-	oModuloPrincipal = new ModuloPrincipal  # Instanciamos nuestro Modulo
+Mod #1
+Mod #1
 
-# Creamos los eventos que disparan las acciones 
-	func	LoadFile
-	new qfiledialog("") {
-	cName = getopenfilename("","open file","\","source files(*.txt)")
-	}
-	oModuloPrincipal.CargarArchivo()
-	end
-	
-	func	SaveFile
-	oModuloPrincipal.GuardarArchivo()
-	end
+Mod #1
+Mod #1
+Mod #1
+
+Mod #1
+Mod #1
+Mod #1

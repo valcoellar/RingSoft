@@ -19,19 +19,24 @@ class TextEditorController from windowsControllerParent
 	oModuloPrincipal = new ModuloPrincipal  # Instanciamos nuestro Modulo
 
 # Creamos los eventos que disparan las acciones 
+
 func	LoadFile
 	# Obtenemos el nombre del archivo	
-	new qfiledialog("") {cName = getopenfilename("","open file","\","Text files(*.txt)") }
+		new qfiledialog("") {cName = getopenfilename("","open file","\","Text files(*.txt)") }
 	# Colocamos la ruta cName en NombreArchivo
-	oView.NombreArchivo.setText(cName)
+		oView.NombreArchivo.setText(cName)
 	# abrimos el archivo y cargamos su contenido en memoria
-	cFileContents = read(cName)
+		cFileContents = read(cName)
 	# Colocamos el contenido en TextEdit1
-	oView.TextEdit1.setText(cFileContents)
+		oView.TextEdit1.setText(cFileContents)
 
-	oModuloPrincipal.CargarArchivo()
+		oModuloPrincipal.CargarArchivo()
 end
 	
 	func	SaveFile
-	oModuloPrincipal.GuardarArchivo()
+	cName = oView.NombreArchivo.Text()
+	cContent = oView.TextEdit1.toPlainText()  #  Qt toPlainText expuesto por Ring
+	write(cName,cContent)
+	oModuloPrincipal.GuardarArchivo(cName)
+	
 	end
