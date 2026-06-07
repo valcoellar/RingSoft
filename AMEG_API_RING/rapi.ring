@@ -3,17 +3,18 @@
 # Author:  Valentin Coellar Serrano.
 # Email:   direccion@gruponucleon.com
 # Date:    04/06/2026
-# Version: 0.0.4 (Ring)
+# Version: 0.0.7 (Ring)
 # License: Use under Author permission.
 # Port:8081  
 # Endpoints: 
-# /status 	= Muestra "Exitoso" si api online
-# /dash 	= FrontEnd de la aplicacion
+# +/status 		= Muestra "Exitoso" si api online
+# +/dashcaja	= FrontEnd de la aplicacion
+# +/existencia	= FrontEnd de existencias y filtros
 # /notas       	= (devuelve las notas del dia + clave cliente)
 # /clientes    	= retorna toda la lista de clientes con sus nombres de CLIE01
 # /notasfull	= Retorna Notas del dia + todas sus partidas de cada una
-# /nameproducts	=Retorna lista de productos con su descripcion y clave
-# /stock 	=Retorna losta productos sin existencias en almacen 2
+# +/nameproducts	=Retorna lista de productos con su descripcion y clave
+# +/stock 		=Retorna losta productos sin existencias en almacen 2
 # --------------------------------------------
 
 load "stdlib.ring"
@@ -24,8 +25,11 @@ oServer = new Server {
 		# endpoint /status
 		route(:Get,"/status",:status)
 
-		# endpoint /dash
-		route(:Get,"/dash",:dash)	
+		# endpoint /dashcaja
+		route(:Get,"/dashcaja",:dashcaja)
+		
+		# endpoint /existencia
+		route(:Get,"/existencia",:existencia)	
 		
 		# endpoint /notas
 		route(:Get,"/notas",:notas)
@@ -33,10 +37,10 @@ oServer = new Server {
 		# stock /stock
 		route(:Get,"/stock",:stock)
 
+		# nameproducts /nameproducts
+		route(:Get,"/nameproducts",:nameproducts)
 
-
-
-        ? "Servidor iniciado. Valentin Coellar S. 2026 direccion@gruponucleon.com 8081 0.0.4 Ring"
+        ? "Servidor iniciado. Valentin Coellar S. 2026 direccion@gruponucleon.com 8081 0.0.7 Ring"
         listen("0.0.0.0", 8081)
 }
 
@@ -46,10 +50,17 @@ func status
 	oServer.SetContent("Api Online Conexion existosa", "text/plain")
 end
 
-func dash
+func dashcaja
 	cFront = read("static/index.html")
 	oServer.SetContent(cFront,"text/html")
 end
+	
+func existencia
+	cFrontExist = read("static/existencias.html")
+	oServer.SetContent(cFrontExist,"text/html")
+end
+
+
 
 func notas
 	cmd = 'connectdb --query "SELECT CVE_DOC, CVE_CLPV, IMPORTE FROM FACTV01 WHERE CAST(FECHA_DOC AS DATE) = CAST(GETDATE() AS DATE)"'
@@ -59,8 +70,16 @@ func notas
 end
 
 func stock
-    cmd = 'connectdb --query "SELECT CVE_ART, EXIST FROM MULT01 WHERE CVE_ALM = 2 AND EXIST = 0"'
+    cmd = 'connectdb --query "SELECT CVE_ART, EXIST, CVE_ALM FROM MULT01"'
     
     res = SystemCmd(cmd)
     oServer.SetContent(res, "text/plain")
 end
+
+func nameproducts
+cmd = 'connectdb --query "SELECT CVE_ART, DESCR, STATUS FROM INVE01"' 
+    
+    res = SystemCmd(cmd)
+    oServer.SetContent(res, "text/plain")
+end
+
