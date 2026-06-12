@@ -14,7 +14,7 @@ oView = new loginView
 		oView {
 			usr = TextEditUser.toPlainText()
 			pass = TextEditPass.toPlainText()
-			ValidaUsuario(usr,pass)
 		}
+		ValidaUsuario(usr,pass,oView)
 	} 
 load "MainModule.ring"

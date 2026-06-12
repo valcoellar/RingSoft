@@ -3,8 +3,8 @@
 cVisualSourceFileVersion = '1.0.0'
 cVisualLanguageName      = 'RingPWCT'
 cNaturalLanguageName     = 'english'
-nStepsID                 = 26		
-nInteractionsID          = 18
+nStepsID                 = 29		
+nInteractionsID          = 21
 
 aStepsTable = [
 	[
@@ -247,7 +247,7 @@ no tener codigo en el controller"
 		[
 			[
 				"name",
-				"function <span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">ValidaUsuario</font></span> <span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">usr,pass</font></span>"
+				"function <span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">ValidaUsuario</font></span> <span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">usr,pass,oView</font></span>"
 			],
 			[
 				"active",
@@ -255,7 +255,7 @@ no tener codigo en el controller"
 			],
 			[
 				"code",
-				"func ValidaUsuario usr,pass"
+				"func ValidaUsuario usr,pass,oView"
 			],
 			[
 				"interactionid",
@@ -275,7 +275,7 @@ no tener codigo en el controller"
 			],
 			[
 				"plainname",
-				"function ValidaUsuario usr,pass"
+				"function ValidaUsuario usr,pass,oView"
 			]
 		]
 	],
@@ -584,6 +584,44 @@ no tener codigo en el controller"
 		]
 	],
 	[
+		29,
+		20,
+		[
+			[
+				"name",
+				"oView.win.close()"
+			],
+			[
+				"active",
+				1
+			],
+			[
+				"code",
+				"oView.win.close()"
+			],
+			[
+				"interactionid",
+				21
+			],
+			[
+				"visible",
+				1
+			],
+			[
+				"stepnumber",
+				1
+			],
+			[
+				"steptype",
+				2
+			],
+			[
+				"plainname",
+				"oView.win.close()"
+			]
+		]
+	],
+	[
 		21,
 		19,
 		[
@@ -703,7 +741,7 @@ no tener codigo en el controller;;_RV_;;value2;;_RV_;;0;;_RV_;;"
 		"func",
 		"11/06/2026",
 		"22:10:01",
-		"name;;_RV_;;ValidaUsuario;;_RV_;;lparameters;;_RV_;;2;;_RV_;;parameters;;_RV_;;usr,pass;;_RV_;;loutput;;_RV_;;0;;_RV_;;output;;_RV_;;;;_RV_;;"
+		"name;;_RV_;;ValidaUsuario;;_RV_;;lparameters;;_RV_;;2;;_RV_;;parameters;;_RV_;;usr,pass,oView;;_RV_;;loutput;;_RV_;;0;;_RV_;;output;;_RV_;;;;_RV_;;"
 	],
 	[
 		11,
@@ -752,6 +790,14 @@ no tener codigo en el controller;;_RV_;;value2;;_RV_;;0;;_RV_;;"
 		"11/06/2026",
 		"22:46:40",
 		"name;;_RV_;;openWindow;;_RV_;;lparameters;;_RV_;;2;;_RV_;;parameters;;_RV_;;:AplicacionController;;_RV_;;loutput;;_RV_;;0;;_RV_;;output;;_RV_;;;;_RV_;;"
+	],
+	[
+		21,
+		1,
+		"callfunc",
+		"12/06/2026",
+		"15:26:32",
+		"name;;_RV_;;oView.win.close;;_RV_;;lparameters;;_RV_;;0;;_RV_;;parameters;;_RV_;;;;_RV_;;loutput;;_RV_;;0;;_RV_;;output;;_RV_;;;;_RV_;;"
 	]
 ]
 

@@ -3,8 +3,8 @@
 cVisualSourceFileVersion = '1.0.0'
 cVisualLanguageName      = 'RingPWCT'
 cNaturalLanguageName     = 'english'
-nStepsID                 = 78		
-nInteractionsID          = 36
+nStepsID                 = 80		
+nInteractionsID          = 37
 
 aStepsTable = [
 	[
@@ -592,15 +592,15 @@ oView = new loginView
 		[
 			[
 				"name",
-				"ValidaUsuario(<span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">usr,pass</font></span>)"
+				"ValidaUsuario(<span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">usr,pass,oView</font></span>)"
 			],
 			[
 				"active",
-				1
+				0
 			],
 			[
 				"code",
-				"ValidaUsuario(usr,pass)"
+				"ValidaUsuario(usr,pass,oView)"
 			],
 			[
 				"interactionid",
@@ -620,7 +620,7 @@ oView = new loginView
 			],
 			[
 				"plainname",
-				"ValidaUsuario(usr,pass)"
+				"ValidaUsuario(usr,pass,oView)"
 			]
 		]
 	],
@@ -659,6 +659,44 @@ oView = new loginView
 			[
 				"plainname",
 				"}"
+			]
+		]
+	],
+	[
+		79,
+		62,
+		[
+			[
+				"name",
+				"ValidaUsuario(<span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">usr,pass,oView</font></span>)"
+			],
+			[
+				"active",
+				1
+			],
+			[
+				"code",
+				"ValidaUsuario(usr,pass,oView)"
+			],
+			[
+				"interactionid",
+				37
+			],
+			[
+				"visible",
+				1
+			],
+			[
+				"stepnumber",
+				1
+			],
+			[
+				"steptype",
+				2
+			],
+			[
+				"plainname",
+				"ValidaUsuario(usr,pass,oView)"
 			]
 		]
 	],
@@ -963,7 +1001,7 @@ aInteractionsTable = [
 		"callfunc",
 		"11/06/2026",
 		"22:12:08",
-		"name;;_RV_;;ValidaUsuario;;_RV_;;lparameters;;_RV_;;2;;_RV_;;parameters;;_RV_;;usr,pass;;_RV_;;loutput;;_RV_;;0;;_RV_;;output;;_RV_;;;;_RV_;;"
+		"name;;_RV_;;ValidaUsuario;;_RV_;;lparameters;;_RV_;;2;;_RV_;;parameters;;_RV_;;usr,pass,oView;;_RV_;;loutput;;_RV_;;0;;_RV_;;output;;_RV_;;;;_RV_;;"
 	],
 	[
 		34,
@@ -980,6 +1018,14 @@ aInteractionsTable = [
 		"11/06/2026",
 		"22:15:11",
 		"leftside;;_RV_;;pass;;_RV_;;rightside;;_RV_;;TextEditPass.toPlainText();;_RV_;;"
+	],
+	[
+		37,
+		1,
+		"callfunc",
+		"11/06/2026",
+		"22:12:08",
+		"name;;_RV_;;ValidaUsuario;;_RV_;;lparameters;;_RV_;;2;;_RV_;;parameters;;_RV_;;usr,pass,oView;;_RV_;;loutput;;_RV_;;0;;_RV_;;output;;_RV_;;;;_RV_;;"
 	]
 ]
 
