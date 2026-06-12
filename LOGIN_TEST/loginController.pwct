@@ -3,8 +3,8 @@
 cVisualSourceFileVersion = '1.0.0'
 cVisualLanguageName      = 'RingPWCT'
 cNaturalLanguageName     = 'english'
-nStepsID                 = 67		
-nInteractionsID          = 27
+nStepsID                 = 78		
+nInteractionsID          = 36
 
 aStepsTable = [
 	[
@@ -511,6 +511,120 @@ oView = new loginView
 		]
 	],
 	[
+		76,
+		64,
+		[
+			[
+				"name",
+				"<span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">usr</font></span> = <span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">TextEditUser.toPlainText()</font></span>"
+			],
+			[
+				"active",
+				1
+			],
+			[
+				"code",
+				"usr = TextEditUser.toPlainText()"
+			],
+			[
+				"interactionid",
+				34
+			],
+			[
+				"visible",
+				1
+			],
+			[
+				"stepnumber",
+				1
+			],
+			[
+				"steptype",
+				2
+			],
+			[
+				"plainname",
+				"usr = TextEditUser.toPlainText()"
+			]
+		]
+	],
+	[
+		77,
+		64,
+		[
+			[
+				"name",
+				"<span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">pass</font></span> = <span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">TextEditPass.toPlainText()</font></span>"
+			],
+			[
+				"active",
+				1
+			],
+			[
+				"code",
+				"pass = TextEditPass.toPlainText()"
+			],
+			[
+				"interactionid",
+				35
+			],
+			[
+				"visible",
+				1
+			],
+			[
+				"stepnumber",
+				1
+			],
+			[
+				"steptype",
+				2
+			],
+			[
+				"plainname",
+				"pass = TextEditPass.toPlainText()"
+			]
+		]
+	],
+	[
+		75,
+		64,
+		[
+			[
+				"name",
+				"ValidaUsuario(<span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">usr,pass</font></span>)"
+			],
+			[
+				"active",
+				1
+			],
+			[
+				"code",
+				"ValidaUsuario(usr,pass)"
+			],
+			[
+				"interactionid",
+				33
+			],
+			[
+				"visible",
+				1
+			],
+			[
+				"stepnumber",
+				1
+			],
+			[
+				"steptype",
+				2
+			],
+			[
+				"plainname",
+				"ValidaUsuario(usr,pass)"
+			]
+		]
+	],
+	[
 		65,
 		63,
 		[
@@ -737,6 +851,44 @@ oView = new loginView
 				" End of class "
 			]
 		]
+	],
+	[
+		68,
+		1,
+		[
+			[
+				"name",
+				"Load <span style="+char(34)+"background-color:C_STEPCOLOR_DATA_BACKCOLOR"+char(34)+"><font color="+char(34)+"C_STEPCOLOR_DATA_TEXT"+char(34)+">MainModule.ring</font></span>"
+			],
+			[
+				"active",
+				1
+			],
+			[
+				"code",
+				"load "+char(34)+"MainModule.ring"+char(34)+""
+			],
+			[
+				"interactionid",
+				28
+			],
+			[
+				"visible",
+				1
+			],
+			[
+				"stepnumber",
+				1
+			],
+			[
+				"steptype",
+				2
+			],
+			[
+				"plainname",
+				"Load MainModule.ring"
+			]
+		]
 	]
 ]
 
@@ -796,6 +948,38 @@ aInteractionsTable = [
 		"11/06/2026",
 		"10:43:22",
 		"value;;_RV_;;oView;;_RV_;;"
+	],
+	[
+		28,
+		1,
+		"load",
+		"11/06/2026",
+		"21:51:17",
+		"file;;_RV_;;MainModule.ring;;_RV_;;type;;_RV_;;1;;_RV_;;"
+	],
+	[
+		33,
+		1,
+		"callfunc",
+		"11/06/2026",
+		"22:12:08",
+		"name;;_RV_;;ValidaUsuario;;_RV_;;lparameters;;_RV_;;2;;_RV_;;parameters;;_RV_;;usr,pass;;_RV_;;loutput;;_RV_;;0;;_RV_;;output;;_RV_;;;;_RV_;;"
+	],
+	[
+		34,
+		1,
+		"assignment",
+		"11/06/2026",
+		"22:14:39",
+		"leftside;;_RV_;;usr;;_RV_;;rightside;;_RV_;;TextEditUser.toPlainText();;_RV_;;"
+	],
+	[
+		35,
+		1,
+		"assignment",
+		"11/06/2026",
+		"22:15:11",
+		"leftside;;_RV_;;pass;;_RV_;;rightside;;_RV_;;TextEditPass.toPlainText();;_RV_;;"
 	]
 ]
 

@@ -1,0 +1,9 @@
+admin
+12345
+
+ventas
+ventas
+
+inventario
+cajas
+

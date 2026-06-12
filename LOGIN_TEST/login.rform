@@ -64,7 +64,7 @@ aObjectsList = [
 		]
 	],
 	[ :name = "TextEditPass" , :id = 6 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 298 , : y = 185  , 
+		 :x = 299 , : y = 184  , 
 		 :width =  203 , :height = 33 , 
 		 :textcolor =  "" , 
 		 :backcolor =  "white" , 
@@ -80,7 +80,7 @@ aObjectsList = [
 		 :setundoAvailableEvent =  ""
 		]
 	],
-	[ :name = "Button1" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "ButtonLogin" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 341 , : y = 268  , 
 		 :width =  118 , :height = 35 , 
 		 :textcolor =  "" , 

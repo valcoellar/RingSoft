@@ -12,5 +12,9 @@ oView = new loginView
 
 	func Entrar  { 
 		oView {
+			usr = TextEditUser.toPlainText()
+			pass = TextEditPass.toPlainText()
+			ValidaUsuario(usr,pass)
 		}
 	} 
+load "MainModule.ring"
