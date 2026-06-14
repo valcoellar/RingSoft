@@ -1,0 +1,41 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 10 , : y = 72  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "Aplicacion Principal" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 66 , : y = 59  , 
+		 :width =  275 , :height = 80 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Aplicacion Principal",
+		 :textalign =  0
+		]
+	],
+	[ :name = "ButtonCerrar" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 71 , : y = 222  , 
+		 :width =  157 , :height = 44 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Cerrar",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Cerrar"
+		]
+	]
+]
+# End Form Designer File

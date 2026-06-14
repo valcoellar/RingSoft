@@ -1,0 +1,96 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  538 , :height = 383 , 
+		 :title =  "Login" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_dialog | Qt_WindowTitleHint | Qt_WindowMinimizeButtonHint | Qt_WindowCloseButtonHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "Image1" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = -6 , : y = -2  , 
+		 :width =  278 , :height = 357 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "/home/valcoellar/Dropbox/Ring/LOGIN_TEST/log.jpg"
+		]
+	],
+	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 304 , : y = 24  , 
+		 :width =  163 , :height = 42 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Usuario",
+		 :textalign =  0
+		]
+	],
+	[ :name = "TextEditUser" , :id = 4 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 298 , : y = 74  , 
+		 :width =  203 , :height = 30 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Label4" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 304 , : y = 132  , 
+		 :width =  163 , :height = 42 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Contraseña",
+		 :textalign =  0
+		]
+	],
+	[ :name = "TextEditPass" , :id = 6 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 299 , : y = 184  , 
+		 :width =  203 , :height = 33 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "ButtonLogin" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 341 , : y = 268  , 
+		 :width =  118 , :height = 35 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Entrar",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Entrar"
+		]
+	]
+]
+# End Form Designer File
