@@ -1,0 +1,398 @@
+%PDF-1.3
+%«Ïè¢
+1 0 obj
+<<
+  /Creator (Ring                                                           )
+  /Producer (Ring                                                           )
+  /Title (PDF Report                                                     )
+  /Author (Valentin Coellar                                               )
+  /Subject (Report                                                         )
+  /CreationDate (D:18/06/2026                                                     )
+>>
+endobj
+2 0 obj
+<<
+  /Type /Pages
+  /Kids [ 5 0 R ]
+  /Count 1
+>>
+endobj
+3 0 obj
+<<
+  /Type /Catalog
+  /Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+  /Type /Font
+  /Subtype /Type1
+  /BaseFont /Times-Roman
+  /Encoding /WinAnsiEncoding
+>>
+endobj
+5 0 obj
+<<
+  /Type /Page
+  /Parent 2 0 R
+  /MediaBox [0 0 612.000000 792.000000]
+  /Resources <<
+    /Font <<
+      /F1 4 0 R
+    >>
+    /ExtGState <<
+      /GS0 <</ca 1.000000>>
+      /GS1 <</ca 0.933333>>
+      /GS2 <</ca 0.866667>>
+      /GS3 <</ca 0.800000>>
+      /GS4 <</ca 0.733333>>
+      /GS5 <</ca 0.666667>>
+      /GS6 <</ca 0.600000>>
+      /GS7 <</ca 0.533333>>
+      /GS8 <</ca 0.466667>>
+      /GS9 <</ca 0.400000>>
+      /GS10 <</ca 0.333333>>
+      /GS11 <</ca 0.266667>>
+      /GS12 <</ca 0.200000>>
+      /GS13 <</ca 0.133333>>
+      /GS14 <</ca 0.066667>>
+      /GS15 <</ca 0.000000>>
+    >>
+  >>
+  /Contents [
+6 0 R
+7 0 R
+8 0 R
+9 0 R
+10 0 R
+11 0 R
+12 0 R
+13 0 R
+14 0 R
+15 0 R
+16 0 R
+17 0 R
+18 0 R
+19 0 R
+20 0 R
+21 0 R
+22 0 R
+23 0 R
+24 0 R
+25 0 R
+26 0 R
+27 0 R
+28 0 R
+29 0 R
+30 0 R
+31 0 R
+32 0 R
+33 0 R
+34 0 R
+35 0 R
+36 0 R
+37 0 R
+38 0 R
+39 0 R
+40 0 R
+41 0 R
+42 0 R
+43 0 R
+44 0 R
+45 0 R
+46 0 R
+47 0 R
+48 0 R
+49 0 R
+50 0 R
+]
+>>
+endobj
+6 0 obj
+<< /Length 1232 >>stream
+BT /GS0 gs 100.000000 720.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (# Form/Window Controller - Source Code Fileload "reporteView.ring"load "pdfgen.ring"import System.GUIif IsMainSourceFile\(\) {new App {StyleFusion\(\)openWindow\(:reporteController\)exec\(\)}}class reporteController from windowsControllerParentoView = new reporteViewfunc imprimesTexto = oView.textEdit1.toPlaintext\(\)oView {//-----cPDFFileName = "output.pdf"pdf = pdf_create\(PDF_LETTER_WIDTH, PDF_LETTER_HEIGHT, [        :creator  = "Ring",        :producer = "Ring",        :title    = "PDF Report",        :author   = "Valentin Coellar ",        :subject  = "Report",        :date     = "18/06/2026"] \)pdf_set_font\(pdf, "Times-Roman"\)pdf_append_page\(pdf\)pdf_add_text\(pdf, NULL, sTexto, 12, 100, 720, PDF_BLACK\)                              //size, xoff, yoff, de abajo hacia arriba// Dividir texto en lÌneas manualmente        aLineas = split\(sTexto, nl\)        nY = 720        for linea in aLineas            pdf_add_text\(pdf, NULL, linea, 12, 100, nY, PDF_BLACK\)            nY -= 14  // interlineado        next                              pdf_save\(pdf, cPDFFileName\)pdf_destroy\(pdf\)system\(cPDFFileName\)}) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Length 146 >>stream
+BT /GS0 gs 100.000000 720.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (# Form/Window Controller - Source Code File) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Length 126 >>stream
+BT /GS0 gs 100.000000 692.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (load "reporteView.ring") Tj ET
+endstream
+endobj
+9 0 obj
+<< /Length 121 >>stream
+BT /GS0 gs 100.000000 678.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (load "pdfgen.ring") Tj ET
+endstream
+endobj
+10 0 obj
+<< /Length 120 >>stream
+BT /GS0 gs 100.000000 650.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (import System.GUI) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Length 128 >>stream
+BT /GS0 gs 100.000000 622.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (if IsMainSourceFile\(\) {) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Length 112 >>stream
+BT /GS0 gs 100.000000 608.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (new App {) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Length 118 >>stream
+BT /GS0 gs 100.000000 594.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (StyleFusion\(\)) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Length 135 >>stream
+BT /GS0 gs 100.000000 580.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (openWindow\(:reporteController\)) Tj ET
+endstream
+endobj
+15 0 obj
+<< /Length 111 >>stream
+BT /GS0 gs 100.000000 566.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (exec\(\)) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Length 104 >>stream
+BT /GS0 gs 100.000000 552.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (}) Tj ET
+endstream
+endobj
+17 0 obj
+<< /Length 104 >>stream
+BT /GS0 gs 100.000000 538.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (}) Tj ET
+endstream
+endobj
+18 0 obj
+<< /Length 155 >>stream
+BT /GS0 gs 100.000000 510.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (class reporteController from windowsControllerParent) Tj ET
+endstream
+endobj
+19 0 obj
+<< /Length 126 >>stream
+BT /GS0 gs 100.000000 482.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (oView = new reporteView) Tj ET
+endstream
+endobj
+20 0 obj
+<< /Length 115 >>stream
+BT /GS0 gs 100.000000 440.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (func imprime) Tj ET
+endstream
+endobj
+21 0 obj
+<< /Length 143 >>stream
+BT /GS0 gs 100.000000 426.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (sTexto = oView.textEdit1.toPlaintext\(\)) Tj ET
+endstream
+endobj
+22 0 obj
+<< /Length 110 >>stream
+BT /GS0 gs 100.000000 412.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (oView {) Tj ET
+endstream
+endobj
+23 0 obj
+<< /Length 103 >>stream
+BT /GS0 gs 100.000000 398.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc () Tj ET
+endstream
+endobj
+24 0 obj
+<< /Length 110 >>stream
+BT /GS0 gs 100.000000 384.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (//-----) Tj ET
+endstream
+endobj
+25 0 obj
+<< /Length 130 >>stream
+BT /GS0 gs 100.000000 314.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (cPDFFileName = "output.pdf") Tj ET
+endstream
+endobj
+26 0 obj
+<< /Length 159 >>stream
+BT /GS0 gs 100.000000 286.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (pdf = pdf_create\(PDF_LETTER_WIDTH, PDF_LETTER_HEIGHT, [) Tj ET
+endstream
+endobj
+27 0 obj
+<< /Length 130 >>stream
+BT /GS0 gs 100.000000 272.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        :creator  = "Ring",) Tj ET
+endstream
+endobj
+28 0 obj
+<< /Length 130 >>stream
+BT /GS0 gs 100.000000 258.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        :producer = "Ring",) Tj ET
+endstream
+endobj
+29 0 obj
+<< /Length 136 >>stream
+BT /GS0 gs 100.000000 244.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        :title    = "PDF Report",) Tj ET
+endstream
+endobj
+30 0 obj
+<< /Length 143 >>stream
+BT /GS0 gs 100.000000 230.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        :author   = "Valentin Coellar ",) Tj ET
+endstream
+endobj
+31 0 obj
+<< /Length 132 >>stream
+BT /GS0 gs 100.000000 216.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        :subject  = "Report",) Tj ET
+endstream
+endobj
+32 0 obj
+<< /Length 135 >>stream
+BT /GS0 gs 100.000000 202.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        :date     = "18/06/2026") Tj ET
+endstream
+endobj
+33 0 obj
+<< /Length 107 >>stream
+BT /GS0 gs 100.000000 188.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (] \)) Tj ET
+endstream
+endobj
+34 0 obj
+<< /Length 137 >>stream
+BT /GS0 gs 100.000000 160.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (pdf_set_font\(pdf, "Times-Roman"\)) Tj ET
+endstream
+endobj
+35 0 obj
+<< /Length 125 >>stream
+BT /GS0 gs 100.000000 146.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (pdf_append_page\(pdf\)) Tj ET
+endstream
+endobj
+36 0 obj
+<< /Length 161 >>stream
+BT /GS0 gs 100.000000 118.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (pdf_add_text\(pdf, NULL, sTexto, 12, 100, 720, PDF_BLACK\)) Tj ET
+endstream
+endobj
+37 0 obj
+<< /Length 174 >>stream
+BT /GS0 gs 100.000000 104.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (                              //size, xoff, yoff, de abajo hacia arriba) Tj ET
+endstream
+endobj
+38 0 obj
+<< /Length 140 >>stream
+BT /GS0 gs 100.000000 76.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (// Dividir texto en lÌneas manualmente) Tj ET
+endstream
+endobj
+39 0 obj
+<< /Length 139 >>stream
+BT /GS0 gs 100.000000 62.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        aLineas = split\(sTexto, nl\)) Tj ET
+endstream
+endobj
+40 0 obj
+<< /Length 118 >>stream
+BT /GS0 gs 100.000000 48.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        nY = 720) Tj ET
+endstream
+endobj
+41 0 obj
+<< /Length 130 >>stream
+BT /GS0 gs 100.000000 34.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        for linea in aLineas) Tj ET
+endstream
+endobj
+42 0 obj
+<< /Length 170 >>stream
+BT /GS0 gs 100.000000 20.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (            pdf_add_text\(pdf, NULL, linea, 12, 100, nY, PDF_BLACK\)) Tj ET
+endstream
+endobj
+43 0 obj
+<< /Length 138 >>stream
+BT /GS0 gs 100.000000 6.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (            nY -= 14  // interlineado) Tj ET
+endstream
+endobj
+44 0 obj
+<< /Length 114 >>stream
+BT /GS0 gs 100.000000 -8.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (        next) Tj ET
+endstream
+endobj
+45 0 obj
+<< /Length 133 >>stream
+BT /GS0 gs 100.000000 -36.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (                              ) Tj ET
+endstream
+endobj
+46 0 obj
+<< /Length 132 >>stream
+BT /GS0 gs 100.000000 -64.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (pdf_save\(pdf, cPDFFileName\)) Tj ET
+endstream
+endobj
+47 0 obj
+<< /Length 121 >>stream
+BT /GS0 gs 100.000000 -78.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (pdf_destroy\(pdf\)) Tj ET
+endstream
+endobj
+48 0 obj
+<< /Length 126 >>stream
+BT /GS0 gs 100.000000 -106.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (system\(cPDFFileName\)) Tj ET
+endstream
+endobj
+49 0 obj
+<< /Length 104 >>stream
+BT /GS0 gs 100.000000 -148.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc () Tj ET
+endstream
+endobj
+50 0 obj
+<< /Length 105 >>stream
+BT /GS0 gs 100.000000 -176.000000 TD /F1 12.000000 Tf 0.000000 0.000000 0.000000 rg 0.000000 Tc (}) Tj ET
+endstream
+endobj
+xref
+0 51
+0000000000 65535 f
+0000000017 00000 n
+0000000515 00000 n
+0000000587 00000 n
+0000000646 00000 n
+0000000761 00000 n
+0000001792 00000 n
+0000003080 00000 n
+0000003281 00000 n
+0000003462 00000 n
+0000003638 00000 n
+0000003814 00000 n
+0000003998 00000 n
+0000004166 00000 n
+0000004340 00000 n
+0000004531 00000 n
+0000004698 00000 n
+0000004858 00000 n
+0000005018 00000 n
+0000005229 00000 n
+0000005411 00000 n
+0000005582 00000 n
+0000005781 00000 n
+0000005947 00000 n
+0000006106 00000 n
+0000006272 00000 n
+0000006458 00000 n
+0000006673 00000 n
+0000006859 00000 n
+0000007045 00000 n
+0000007237 00000 n
+0000007436 00000 n
+0000007624 00000 n
+0000007815 00000 n
+0000007978 00000 n
+0000008171 00000 n
+0000008352 00000 n
+0000008569 00000 n
+0000008799 00000 n
+0000008995 00000 n
+0000009190 00000 n
+0000009364 00000 n
+0000009550 00000 n
+0000009776 00000 n
+0000009970 00000 n
+0000010140 00000 n
+0000010329 00000 n
+0000010517 00000 n
+0000010694 00000 n
+0000010876 00000 n
+0000011036 00000 n
+trailer
+<<
+/Size 51
+/Root 3 0 R
+/Info 1 0 R
+/ID [<62611e357f113643> <001ae818b8eae97e>]
+>>
+startxref
+11197
+%%EOF
