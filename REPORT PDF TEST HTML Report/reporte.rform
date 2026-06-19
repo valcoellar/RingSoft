@@ -1,0 +1,47 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  458 , :height = 400 , 
+		 :title =  "Report Test PDF" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 330 , : y = 327  , 
+		 :width =  94 , :height = 32 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Imprimir",
+		 :BtnImage =  "",
+		 :setClickEvent =  "imprime"
+		]
+	],
+	[ :name = "TextEdit1" , :id = 4 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 29 , : y = 27  , 
+		 :width =  392 , :height = 288 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	]
+]
+# End Form Designer File
